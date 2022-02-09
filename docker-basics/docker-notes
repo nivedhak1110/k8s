@@ -1,0 +1,20 @@
+Docker
+------
+1. Life of Developer - operation team without Docker
+
+2. What is Docker
+
+3. Problems without Docker, why it is needed ?
+   > Compatibility & Dependency
+   > Long Setup time
+   > Different Dev/Test/Prod Environments
+   > Developers vs Operations team  - Issues
+
+4. run your flask application & mysql without docker , understand the problem practically.
+   note down the time taken for this
+
+5. Understand Dockerfile & create it for your Flask app
+6. Build docker image of your app
+7. Run your docker image & test it
+8. Advantage of docker
+9. Problem with docker

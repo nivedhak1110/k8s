@@ -1,0 +1,19 @@
+Kubernetes core concepts
+-------------------------
+1. Need of Orchestrator - kubernetes
+2. what is cluster & nodes
+3. Master & worker nodes in kubernetes
+4. Master components ( v basic)
+5. Single node cluster
+6. Install minikube
+7. Simple practice on Yaml
+8. What is POD , multi container POD (example - exporters)
+9, What is service
+9. Run your app as POD in k8s
+10. Replicas
+11. Deployments
+12. Namespace
+
+
+
+
