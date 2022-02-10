@@ -7,6 +7,8 @@ Kubernetes core concepts
 5. Single node cluster
 6. Install minikube
 7. Simple practice on Yaml
+   > http://www.yamllint.com/
+   
 8. What is POD , multi container POD (example - exporters)
 9, What is service
 9. Run your app as POD in k8s
