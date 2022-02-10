@@ -1,6 +1,16 @@
 Kubernetes core concepts
 -------------------------
 1. Need of Orchestrator - kubernetes
+
+What happens when the number of users increased ?
+Can able to handle the load ? 
+Scale up / Scale Down ? 
+Deploy a new containers when containers are down ! 
+Keep watching on instances, n/w connectivity, health of the instances are tedious process
+What about Docker host itself failing? 
+How to manage multiple Docker host machines?
+
+
 2. what is cluster & nodes
 3. Master & worker nodes in kubernetes
 4. Master components ( v basic)
