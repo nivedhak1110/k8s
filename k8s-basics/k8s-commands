@@ -1,0 +1,49 @@
+RINMAC528:minikube ar-nivedha.kuppuraju$ minikube status
+❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 2.015163571s
+💡  Restarting the docker service may improve performance.
+minikube
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+
+
+RINMAC528:minikube ar-nivedha.kuppuraju$ kubectl get node
+NAME       STATUS   ROLES                  AGE   VERSION
+minikube   Ready    control-plane,master   21h   v1.23.1
+RINMAC528:minikube ar-nivedha.kuppuraju$ kubectl get pod
+No resources found in default namespace.
+
+
+
+
+
+RINMAC528:minikube ar-nivedha.kuppuraju$ kubectl get pod -n kube-system
+NAME                               READY   STATUS    RESTARTS      AGE
+coredns-64897985d-pbg6l            1/1     Running   0             21h
+etcd-minikube                      1/1     Running   0             21h
+kube-apiserver-minikube            1/1     Running   0             21h
+kube-controller-manager-minikube   1/1     Running   0             21h
+kube-proxy-j8tnt                   1/1     Running   0             21h
+kube-scheduler-minikube            1/1     Running   0             21h
+storage-provisioner                1/1     Running   3 (98m ago)   21h
+
+
+minikube start
+minikube status
+minikube stop  <cluster stop>
+
+
+kubectl get node
+kubectl get pod  [display all pods in default namespace]
+kubectl get pod -n kube-system [all pods inside particular  namespace]
+
+kubectl run <podname> --image <imagename>
+kubectl run student-inventory --image nivedha1104/student-inventory
+
+kubectl delete pod <podname>
+kubectl describe pod <podname>
+kubectl logs <podname>
