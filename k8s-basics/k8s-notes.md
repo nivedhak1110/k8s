@@ -49,11 +49,19 @@ kubelet: Running
 apiserver: Running
 kubeconfig: Configured
 
+
+
+
 RINMAC528:minikube ar-nivedha.kuppuraju$ **kubectl get node** 
 NAME       STATUS   ROLES                  AGE   VERSION
 minikube   Ready    control-plane,master   21h   v1.23.1
 RINMAC528:minikube ar-nivedha.kuppuraju$ kubectl get pod
 No resources found in default namespace.
+
+
+
+
+
 RINMAC528:minikube ar-nivedha.kuppuraju$ **kubectl get pod -n kube-system**
 NAME                               READY   STATUS    RESTARTS      AGE
 coredns-64897985d-pbg6l            1/1     Running   0             21h
