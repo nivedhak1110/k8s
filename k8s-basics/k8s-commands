@@ -47,3 +47,21 @@ kubectl run student-inventory --image nivedha1104/student-inventory
 kubectl delete pod <podname>
 kubectl describe pod <podname>
 kubectl logs <podname>
+
+create pod using yaml file: 
+***************************
+test your command 
+
+kubectl run student-inventory --image nivedha1104/student-inventory  --dry-run=client  -o yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: student-inventory
+spec:
+  containers:
+  - image: nivedha1104/student-inventory
+    name: student-inventory
+ 
+create yaml file with above contents
+vi student-pod.yaml 
+kubectl create -f student-pod.yaml
