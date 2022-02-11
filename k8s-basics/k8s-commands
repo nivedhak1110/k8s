@@ -54,7 +54,7 @@ create pod using yaml file:
 ***************************
 test your command 
 
-kubectl run student-inventory --image nivedha1104/student-inventory  --dry-run=client  -o yaml
+kubectl run student-inventory --image nivedha1104/student-inventory  --dry-run=client  -o yaml > filename
 apiVersion: v1
 kind: Pod
 metadata:
