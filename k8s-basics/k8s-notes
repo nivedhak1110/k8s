@@ -15,15 +15,15 @@ How to manage multiple Docker host machines?
 3. Master & worker nodes in kubernetes
 4. Master components ( v basic)
 5. Single node cluster
-6. Install minikube
+6. Install minikube -- tool to implement single node cluster
  
-curl -LO    https://github.com/kubernetes/minikube/releases/download/v1.25.1/minikube-darwin-arm64 
-install minikube-darwin-arm64  /Users/karthikey.dhandapani/bin/minikube
+curl -LO    https://github.com/kubernetes/minikube/releases/download/v1.25.1/minikube-darwin-arm64 -- binary download 
+install minikube-darwin-arm64  /Users/karthikey.dhandapani/bin/minikube  -- install binary in the destined path
 
-echo $PATH
-vi ~/.bash_profile PATH=$PATH:/Users/karthikey.dhandapani/bin
-source ~/.bash_profile
-minikube start
+echo $PATH -- make minikube accessible everywhere ( like env var)
+vi ~/.bash_profile PATH=$PATH:/Users/karthikey.dhandapani/bin 
+source ~/.bash_profile -- reflect changes 
+minikube start -- create cluster
 
 
 7. Simple practice on Yaml
