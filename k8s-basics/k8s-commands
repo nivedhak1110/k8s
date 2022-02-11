@@ -40,6 +40,7 @@ minikube stop  <cluster stop>
 kubectl get node
 kubectl get pod  [display all pods in default namespace]
 kubectl get pod -n kube-system [all pods inside particular  namespace]
+kubectl get pods -o wide  [pods with their respective node details]
 
 kubectl run <podname> --image <imagename>
 kubectl run student-inventory --image nivedha1104/student-inventory
