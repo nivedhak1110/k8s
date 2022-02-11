@@ -47,6 +47,7 @@ kubectl run student-inventory --image nivedha1104/student-inventory
 
 kubectl delete pod <podname>
 kubectl describe pod <podname>
+kubectl describe pod webapp | grep -i image
 kubectl logs <podname>
 
 create pod using yaml file: 
@@ -66,3 +67,4 @@ spec:
 create yaml file with above contents
 vi student-pod.yaml 
 kubectl create -f student-pod.yaml
+kubectl apply -f redis.yaml 
