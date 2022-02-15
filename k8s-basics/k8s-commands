@@ -68,3 +68,16 @@ create yaml file with above contents
 vi student-pod.yaml 
 kubectl create -f student-pod.yaml
 kubectl apply -f redis.yaml 
+
+create namespace
+kubectl create ns test
+kubectl run nginx --image nginx --namespace test
+
+display all the pods from all namespace
+kubectl get pods -A
+
+ create deployment
+ kubectl create deployment my-dep --image=nginx --replicas=3 --namespace test
+ kubectl edit  pod my-dep-84885b44-5c6jv  -n test
+ kubectl edit deploy my-dep -n test
+ kubectl set image deploy my-dep nginx=nginx:latest -n test
