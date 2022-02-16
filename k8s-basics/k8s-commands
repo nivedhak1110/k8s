@@ -76,8 +76,13 @@ kubectl run nginx --image nginx --namespace test
 display all the pods from all namespace
 kubectl get pods -A
 
- create deployment
+ create and edit deployment 
  kubectl create deployment my-dep --image=nginx --replicas=3 --namespace test
  kubectl edit  pod my-dep-84885b44-5c6jv  -n test
  kubectl edit deploy my-dep -n test
  kubectl set image deploy my-dep nginx=nginx:latest -n test
+ 
+ Get deployment:
+ kubectl get deploy -n test
+ kubectl get rs -n test
+ kubectl get pods -n test
