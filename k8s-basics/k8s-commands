@@ -86,3 +86,10 @@ kubectl get pods -A
  kubectl get deploy -n test
  kubectl get rs -n test
  kubectl get pods -n test
+ 
+ label:
+ kubectl label pod <podname>  key=value -n test
+ kubectl get pod --selector key=value -n test
+ 
+ kubectl label deploy <deploymentname> key=value -n test
+ kubectl get deploy --selector key=value -n test
