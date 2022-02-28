@@ -81,6 +81,7 @@ kubectl get pods -A
  kubectl edit  pod my-dep-84885b44-5c6jv  -n test
  kubectl edit deploy my-dep -n test
  kubectl set image deploy my-dep nginx=nginx:latest -n test
+ #kubectl set image deploy deployment-name container-name=image-name:version -n test
  
  Get deployment:
  kubectl get deploy -n test
