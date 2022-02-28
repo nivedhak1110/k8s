@@ -94,3 +94,4 @@ kubectl get pods -A
  
  kubectl label deploy <deploymentname> key=value -n test
  kubectl get deploy --selector key=value -n test
+ kubectl exec -it nginx -n demo -- sh
