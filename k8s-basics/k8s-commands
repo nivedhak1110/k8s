@@ -94,4 +94,14 @@ kubectl get pods -A
  
  kubectl label deploy <deploymentname> key=value -n test
  kubectl get deploy --selector key=value -n test
+ 
+ enter into pod:
+ ***************
  kubectl exec -it nginx -n demo -- sh
+ kubectl exec -it  flaskpod  -n flaskapp -- sh
+ ps -->processes running
+ netstat -tulp ---> network statistics ---> ports open inside container 
+ Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      1/python
+
