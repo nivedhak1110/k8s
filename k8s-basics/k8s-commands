@@ -105,3 +105,7 @@ kubectl get pods -A
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      1/python
 
+Service
+*******
+
+kubectl expose deployment deployment-name --type NodePort --target-port 8089 --port 8009 --name svc-name -n robin-exporter
