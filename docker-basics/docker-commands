@@ -36,3 +36,5 @@ docker push to docker hub
 docker tag student_inventory:latest nivedha1104/student-inventory
 docker push nivedha1104/student-inventory
 docker pull nivedha1104/student-inventory
+docker exec -it 48f96f666765  bash
+  docker exec -it conatinerId  bash
