@@ -109,3 +109,22 @@ Service
 *******
 
 kubectl expose deployment deployment-name --type NodePort --target-port 8089 --port 8009 --name svc-name -n robin-exporter
+
+task1:
+1. create nginx deploy, 3 replicas,label
+kubectl create deploy nginx-dep --image nginx --replicas 3  -n nginx-task1
+
+2. create nginx svc - node port
+kubectl expose deploy nginx-dep --type NodePort --port 89 --target-port 80  -n nginx-task1 --name nginx-svc
+kubectl get svc -A
+
+3. port forwarding (as we are using minikube)
+kubectl port-forward svc/nginx-svc 1234:89  -n nginx-task1 
+
+4.access from browser
+
+
+
+kubectl expose deploy nginx-dep --type NodePort --port 89 --target-port 80  -n nginx-task1 --name nginx-svc
+
+kubectl port-forward svc/nginx-svc 888:89  -n nginx-task1
