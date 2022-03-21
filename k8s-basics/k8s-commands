@@ -105,12 +105,16 @@ kubectl get pods -A
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 0.0.0.0:5000            0.0.0.0:*               LISTEN      1/python
 
-Service
+Services
 *******
 
-kubectl expose deployment deployment-name --type NodePort --target-port 8089 --port 8009 --name svc-name -n robin-exporter
+kubectl expose deployment deployment-name --type ClusterIP --target-port 8089 --port 8009 --name svc-name -n robin-exporter
+create service command:
+kubectl expose deploy nginx-dep --type NodePort --port 89 --target-port 80  -n nginx-task1 --name nginx-svc
+port-forward command:
+kubectl port-forward svc/nginx-svc 888:89  -n nginx-task1
 
-task1:
+task1:Node port implementation
 1. create nginx deploy, 3 replicas,label
 kubectl create deploy nginx-dep --image nginx --replicas 3  -n nginx-task1
 
@@ -125,6 +129,3 @@ kubectl port-forward svc/nginx-svc 1234:89  -n nginx-task1
 
 
 
-kubectl expose deploy nginx-dep --type NodePort --port 89 --target-port 80  -n nginx-task1 --name nginx-svc
-
-kubectl port-forward svc/nginx-svc 888:89  -n nginx-task1
