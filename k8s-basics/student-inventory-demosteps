@@ -1,0 +1,66 @@
+studnet inventory API application that performs CRUD operations.. Deploy in kubernates..
+
+2 deployments - mysql-1 replica , student-dep-3 replicas
+2services - clusterIP , NodePort
+clusterIP - communication between student-dep pods and mysql pod
+Nodeport - acess application from web browser
+portforwarding is required as minikube itself is being run as a docker container.
+
+web browser get/post any API  request r <---NodePort---> application <--clusterIP--> mysql -- output data
+
+create namespace:
+kubectl create ns student-ns
+
+create mysql deployment:
+to check where to add env in deployment yaml file:
+kubectl run dummy-mysql  --image mysql  --env=user=root --env=password=mypassword -n nginx-task2  --dry-run=client  -o yaml
+
+refer docker command: docker run --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
+
+
+****************
+RINMAC528:~ ar-nivedha.kuppuraju$ cat mysql-dep.yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mysql-dep
+  name: mysql-dep
+  namespace: student-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-dep
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mysql-dep
+    spec:
+      containers:
+      - image: mysql
+        name: mysql
+        resources: {}
+        env:
+         - name: MYSQL_ROOT_PASSWORD
+           value: mypassword 
+******************************
+
+kubectl create -f mysql-dep.yaml
+kubectl create deploy student-dep --image  nivedha1104/student-inventory:v1 --replicas 3 -n student-ns
+kubectl expose deploy mysql-dep  --type ClusterIP  --port 3306  --target-port 3306  -n student-ns  --name mysql
+kubectl expose deploy student-dep  --type NodePort  --port 5005  --target-port 5005  -n student-ns --name student-svc
+kubectl port-forward svc/student-svc 5555:5005  -n student-ns
+
+
+
+
+
+logs:
+kubectl logs mysql-dep-64bb6757d-49nd5  -n student-ns
+mysql terminal:
+kubectl exec -it mysql-dep-64bb6757d-49nd5  -n student-ns --  bash
+mysql -u root -p
