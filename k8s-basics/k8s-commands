@@ -113,7 +113,7 @@ create service command:
 kubectl expose deploy nginx-dep --type NodePort --port 89 --target-port 80  -n nginx-task1 --name nginx-svc
 port-forward command:
 kubectl port-forward svc/nginx-svc 888:89  -n nginx-task1
-
+*********************************************************
 task1:Node port implementation
 1. create nginx deploy, 3 replicas,label
 kubectl create deploy nginx-dep --image nginx --replicas 3  -n nginx-task1
@@ -126,6 +126,9 @@ kubectl get svc -A
 kubectl port-forward svc/nginx-svc 1234:89  -n nginx-task1 
 
 4.access from browser
+*********************************************************
+task2:API application that performs CRUD operations:
 
-
+Backup command:
+kubectl get all -n nginx-task2 -o yaml > application-task2-backup.yaml
 
