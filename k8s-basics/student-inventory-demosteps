@@ -54,7 +54,7 @@ kubectl create deploy student-dep --image  nivedha1104/student-inventory:v1 --re
 kubectl expose deploy mysql-dep  --type ClusterIP  --port 3306  --target-port 3306  -n student-ns  --name mysql
 kubectl expose deploy student-dep  --type NodePort  --port 5005  --target-port 5005  -n student-ns --name student-svc
 kubectl port-forward svc/student-svc 5555:5005  -n student-ns
-
+kubectl port-forward svc/service-name  anywebport: serviceport -n namespace
 
 
 
