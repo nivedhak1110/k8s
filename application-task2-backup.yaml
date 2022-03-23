@@ -1,0 +1,786 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-03-22T11:00:20Z"
+    generateName: mysql-dep-64bb6757d-
+    labels:
+      app: mysql-dep
+      pod-template-hash: 64bb6757d
+    name: mysql-dep-64bb6757d-49nd5
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: mysql-dep-64bb6757d
+      uid: 23e1f8d1-ff9f-4207-8bcf-a9637d966f3a
+    resourceVersion: "652"
+    uid: d0689434-1e64-49d3-a784-2b34c08b1745
+  spec:
+    containers:
+    - env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: mypassword
+      image: mysql
+      imagePullPolicy: Always
+      name: mysql
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-wnwc7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-wnwc7
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-22T11:00:20Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-22T11:00:26Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-22T11:00:26Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-22T11:00:20Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://33860d1fa4ac542b7c020e6cc5ca968c714fa7cc64405f4793f58b719a833c56
+      image: mysql:latest
+      imageID: docker-pullable://mysql@sha256:b2ae0f527005d99bacdf3a220958ed171e1eb0676377174f0323e0a10912408a
+      lastState: {}
+      name: mysql
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-03-22T11:00:25Z"
+    hostIP: 192.168.49.2
+    phase: Running
+    podIP: 172.17.0.6
+    podIPs:
+    - ip: 172.17.0.6
+    qosClass: BestEffort
+    startTime: "2022-03-22T11:00:20Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-03-23T09:31:36Z"
+    generateName: student-dep-69dcf9f67d-
+    labels:
+      app: student-dep
+      pod-template-hash: 69dcf9f67d
+    name: student-dep-69dcf9f67d-67lqh
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: student-dep-69dcf9f67d
+      uid: a4a6283c-7f7f-438a-8735-ba4f57eac9ba
+    resourceVersion: "25139"
+    uid: 0c167dfb-92f4-49d9-874d-7ea67910cf5a
+  spec:
+    containers:
+    - image: nivedha1104/student-inventory:v1
+      imagePullPolicy: Always
+      name: student-inventory
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-qr42q
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-qr42q
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:37Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:43Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:43Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:36Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://00a915bf2faf535f2053c8d61c2b2519a389e60bbc41127fad9ce00fde44642d
+      image: nivedha1104/student-inventory:v1
+      imageID: docker-pullable://nivedha1104/student-inventory@sha256:6215a16258eca258d17609d8c2e7cd3f20aca0a25ccb253a93fe6fae1866f4c4
+      lastState: {}
+      name: student-inventory
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-03-23T09:31:43Z"
+    hostIP: 192.168.49.2
+    phase: Running
+    podIP: 172.17.0.9
+    podIPs:
+    - ip: 172.17.0.9
+    qosClass: BestEffort
+    startTime: "2022-03-23T09:31:37Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-03-23T09:31:15Z"
+    generateName: student-dep-69dcf9f67d-
+    labels:
+      app: student-dep
+      pod-template-hash: 69dcf9f67d
+    name: student-dep-69dcf9f67d-d42f5
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: student-dep-69dcf9f67d
+      uid: a4a6283c-7f7f-438a-8735-ba4f57eac9ba
+    resourceVersion: "25057"
+    uid: e62868da-4adb-49b6-844c-bbc729fabe9c
+  spec:
+    containers:
+    - image: nivedha1104/student-inventory:v1
+      imagePullPolicy: Always
+      name: student-inventory
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-lkf6p
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-lkf6p
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:15Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:15Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://49e28656a60d4d8cf6e80cbe456d572a1b781d2aad52c4c0276d4d39b03f31cf
+      image: nivedha1104/student-inventory:v1
+      imageID: docker-pullable://nivedha1104/student-inventory@sha256:6215a16258eca258d17609d8c2e7cd3f20aca0a25ccb253a93fe6fae1866f4c4
+      lastState: {}
+      name: student-inventory
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-03-23T09:31:26Z"
+    hostIP: 192.168.49.2
+    phase: Running
+    podIP: 172.17.0.7
+    podIPs:
+    - ip: 172.17.0.7
+    qosClass: BestEffort
+    startTime: "2022-03-23T09:31:15Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2022-03-23T09:31:27Z"
+    generateName: student-dep-69dcf9f67d-
+    labels:
+      app: student-dep
+      pod-template-hash: 69dcf9f67d
+    name: student-dep-69dcf9f67d-jl99h
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: student-dep-69dcf9f67d
+      uid: a4a6283c-7f7f-438a-8735-ba4f57eac9ba
+    resourceVersion: "25101"
+    uid: 8501a51d-28b4-4b7f-9bb3-57c508645873
+  spec:
+    containers:
+    - image: nivedha1104/student-inventory:v1
+      imagePullPolicy: Always
+      name: student-inventory
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-ftpln
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-ftpln
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:27Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:36Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:36Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2022-03-23T09:31:27Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://32d95871e185af553d3dd9335e75539fee6ef187a173c0c4911d9fca5f0b7fee
+      image: nivedha1104/student-inventory:v1
+      imageID: docker-pullable://nivedha1104/student-inventory@sha256:6215a16258eca258d17609d8c2e7cd3f20aca0a25ccb253a93fe6fae1866f4c4
+      lastState: {}
+      name: student-inventory
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2022-03-23T09:31:35Z"
+    hostIP: 192.168.49.2
+    phase: Running
+    podIP: 172.17.0.8
+    podIPs:
+    - ip: 172.17.0.8
+    qosClass: BestEffort
+    startTime: "2022-03-23T09:31:27Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-03-22T16:31:44Z"
+    labels:
+      app: mysql-dep
+    name: mysql
+    namespace: nginx-task2
+    resourceVersion: "8764"
+    uid: 041a9d6f-5075-43b5-ad7e-aa216d42591e
+  spec:
+    clusterIP: 10.97.127.5
+    clusterIPs:
+    - 10.97.127.5
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 3306
+      protocol: TCP
+      targetPort: 3306
+    selector:
+      app: mysql-dep
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-03-22T16:12:06Z"
+    labels:
+      app: student-dep
+    name: student-svc
+    namespace: nginx-task2
+    resourceVersion: "25320"
+    uid: 8454103d-4c93-4ea7-aa50-4d45d607a150
+  spec:
+    clusterIP: 10.101.163.62
+    clusterIPs:
+    - 10.101.163.62
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 32020
+      port: 5005
+      protocol: TCP
+      targetPort: 5005
+    selector:
+      app: student-dep
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"app":"mysql-dep"},"name":"mysql-dep","namespace":"nginx-task2"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"mysql-dep"}},"strategy":{},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"mysql-dep"}},"spec":{"containers":[{"env":[{"name":"MYSQL_ROOT_PASSWORD","value":"mypassword"}],"image":"mysql","name":"mysql","resources":{}}]}}}}
+    creationTimestamp: "2022-03-22T11:00:20Z"
+    generation: 2
+    labels:
+      app: mysql-dep
+    name: mysql-dep
+    namespace: nginx-task2
+    resourceVersion: "9940"
+    uid: 9f32de72-4da1-453a-b97f-7cfd760ad272
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: mysql-dep
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: mysql-dep
+      spec:
+        containers:
+        - env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: mypassword
+          image: mysql
+          imagePullPolicy: Always
+          name: mysql
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2022-03-22T11:00:35Z"
+      lastUpdateTime: "2022-03-22T11:00:35Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-03-22T11:00:20Z"
+      lastUpdateTime: "2022-03-22T11:00:35Z"
+      message: ReplicaSet "mysql-dep-64bb6757d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2022-03-22T16:07:46Z"
+    generation: 2
+    labels:
+      app: student-dep
+    name: student-dep
+    namespace: nginx-task2
+    resourceVersion: "25154"
+    uid: 87712b4e-5153-4f3e-ba83-77a2edda088b
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: student-dep
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: student-dep
+      spec:
+        containers:
+        - image: nivedha1104/student-inventory:v1
+          imagePullPolicy: Always
+          name: student-inventory
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2022-03-22T16:08:01Z"
+      lastUpdateTime: "2022-03-22T16:08:01Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2022-03-22T16:07:46Z"
+      lastUpdateTime: "2022-03-23T09:31:44Z"
+      message: ReplicaSet "student-dep-69dcf9f67d" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 2
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-03-22T11:00:20Z"
+    generation: 2
+    labels:
+      app: mysql-dep
+      pod-template-hash: 64bb6757d
+    name: mysql-dep-64bb6757d
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: mysql-dep
+      uid: 9f32de72-4da1-453a-b97f-7cfd760ad272
+    resourceVersion: "9939"
+    uid: 23e1f8d1-ff9f-4207-8bcf-a9637d966f3a
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: mysql-dep
+        pod-template-hash: 64bb6757d
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: mysql-dep
+          pod-template-hash: 64bb6757d
+      spec:
+        containers:
+        - env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: mypassword
+          image: mysql
+          imagePullPolicy: Always
+          name: mysql
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2022-03-23T09:31:15Z"
+    generation: 3
+    labels:
+      app: student-dep
+      pod-template-hash: 69dcf9f67d
+    name: student-dep-69dcf9f67d
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: student-dep
+      uid: 87712b4e-5153-4f3e-ba83-77a2edda088b
+    resourceVersion: "25142"
+    uid: a4a6283c-7f7f-438a-8735-ba4f57eac9ba
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: student-dep
+        pod-template-hash: 69dcf9f67d
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: student-dep
+          pod-template-hash: 69dcf9f67d
+      spec:
+        containers:
+        - image: nivedha1104/student-inventory:v1
+          imagePullPolicy: Always
+          name: student-inventory
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2022-03-22T16:07:46Z"
+    generation: 4
+    labels:
+      app: student-dep
+      pod-template-hash: 768b59dfcc
+    name: student-dep-768b59dfcc
+    namespace: nginx-task2
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: student-dep
+      uid: 87712b4e-5153-4f3e-ba83-77a2edda088b
+    resourceVersion: "25153"
+    uid: 4ce0c165-86d6-45a9-aad7-6a9c60a38618
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: student-dep
+        pod-template-hash: 768b59dfcc
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: student-dep
+          pod-template-hash: 768b59dfcc
+      spec:
+        containers:
+        - image: nivedha1104/student-inventory
+          imagePullPolicy: Always
+          name: student-inventory
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
