@@ -132,3 +132,16 @@ task2:API application that performs CRUD operations:
 Backup command:
 kubectl get all -n nginx-task2 -o yaml > application-task2-backup.yaml
 
+
+********************************************************
+logging
+kubectl log podname -n namespace
+
+monitor:
+metric-server
+minikube addons enable metrics-server
+kubectl top pod -n namespace
+kubectl top node
+
+*********************************************************
+
