@@ -136,6 +136,8 @@ kubectl get all -n nginx-task2 -o yaml > application-task2-backup.yaml
 ********************************************************
 logging
 kubectl log podname -n namespace
+multicontainer pod logs:
+kubectl logs nginx1 -c obf  -n nginx-ns
 
 monitor:
 metric-server
