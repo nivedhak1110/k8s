@@ -1,0 +1,100 @@
+Task 4 
+
+Create a deployment with  multi container pod spec . 
+
+ 
+
+ - image nginx  
+
+   Container name - nginx1  
+
+ 
+
+- image yourflask  
+
+Container name - anything as your wish  
+
+ 
+
+ 
+
+Task 5 
+
+Access your flask app from browser 
+
+Acces your nginx pod from browser 
+
+ ************************************
+
+pod - yaml:
+
+RINMAC528:k8s ar-nivedha.kuppuraju$ cat nginx1.yaml 
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx1
+  name: nginx1
+  namespace: nginx-ns
+spec:
+  containers:
+  - image: nginx
+    name: nginx1
+  - image: nivedha1104/obf
+    name: obf
+    imagePullPolicy: Always
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+
+***********************************
+
+kubectl expose  pod nginx1 --name flask-svc  --type NodePort   --port 5005  --target-port 5000   -n nginx-ns 
+kubectl edit svc flask-svc -n nginx-ns
+kubectl describe svc flask-svc -n nginx-ns
+kubectl get svc flask-svc -n nginx-ns
+
+**********************************
+service yaml:
+
+RINMAC528:k8s ar-nivedha.kuppuraju$ kubectl get svc flask-svc -n nginx-ns -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-03-30T15:10:03Z"
+  labels:
+    run: nginx1
+  name: flask-svc
+  namespace: nginx-ns
+  resourceVersion: "69890"
+  uid: b173b20b-e9e1-402f-82bc-a157ce556351
+spec:
+  clusterIP: 10.109.21.167
+  clusterIPs:
+  - 10.109.21.167
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: flask
+    nodePort: 30496
+    port: 5005
+    protocol: TCP
+    targetPort: 5000
+  - name: nginx
+    nodePort: 30497
+    port: 85
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: nginx1
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+*******************
