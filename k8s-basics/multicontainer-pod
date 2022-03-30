@@ -98,3 +98,6 @@ spec:
 status:
   loadBalancer: {}
 *******************
+
+multicontainer pod logs:
+kubectl logs nginx1 -c obf  -n nginx-ns
