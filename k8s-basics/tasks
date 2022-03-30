@@ -1,0 +1,65 @@
+Task 3 
+
+Create flask  application with  
+
+/Health Get API.  
+
+Response should be - 
+
+Status : healthy 
+
+(Test with docker container) 
+
+ 
+
+ 
+
+Task 4 
+
+Create a deployment with  multi container pod spec . 
+
+ 
+
+ - image nginx  
+Container name - nginx1   
+
+- image yourflask  
+
+Container name - anything as your wish  
+
+ 
+
+ 
+
+Task 5 
+
+Access your flask app from browser 
+
+Acces your nginx pod from browser 
+
+ 
+
+ 
+
+Task 6 
+
+Check logs, description of each pod  
+
+ 
+
+ 
+
+Task 7 
+
+Check usage of pods and nodes 
+ 
+
+ 
+
+Task 8 
+
+Use liveness , readiness 
+
+For your flask app , 
+
+ 
