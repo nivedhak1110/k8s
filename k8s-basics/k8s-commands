@@ -83,9 +83,10 @@ kubectl get pods -A
  kubectl set image deploy my-dep nginx=nginx:latest -n test
  #kubectl set image deploy deployment-name container-name=image-name:version -n test
  
- Get deployment:
+ Get deployment/replicaset:
  kubectl get deploy -n test
  kubectl get rs -n test
+ kubectl delete rs replicaset-1
  kubectl get pods -n test
  
  label:
