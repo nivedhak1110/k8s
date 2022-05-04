@@ -1,0 +1,68 @@
+Core concepts
+ > pod
+ > Replicaset
+ > Deployment
+ > namespace
+ 
+ 
+ Multi container pod
+ > multi container pod
+ 
+ Observability
+ > Readiness probe
+ > Liveness probe
+ > container log
+ > describe pod
+ > monitor cluster
+ > monitor k8s resources
+ 
+ Configuration
+ > commands & args
+ > env
+ > configmap
+ > secret
+ > Docker security
+ > security context
+ > service account
+ > resource requirements
+ > tains & toleration
+ > node selector
+ > node affinity
+ > tains & toleration ||  node affinity
+ 
+ Pod Design
+ > label, selectors , annotation
+ > rolling updates, rollbacks
+ > update deployment
+ > jobs
+ > cron jobs
+ 
+ Services & Networking
+ > services
+ > clusterIP, NodePort, LoadBalancer
+ > ingress
+ > Network policy
+ 
+ State persistence
+ > Volumes
+ > Persistent volumes
+ > Persistent volumes claims
+ > using PVC in pod
+ > storage class
+ > statefulset
+ > headless service
+ 
+ 
+ Updated sylllabus
+ > build, run container
+ > Authentication, Authorization and Admission Control
+ > kubeconfig
+ > API groups
+ > RBAC
+ > admission controllers
+ > CRD
+ > Deployement strategy
+ > Helm
+ 
+ 
+ 
