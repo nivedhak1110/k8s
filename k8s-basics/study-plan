@@ -1,13 +1,19 @@
+Date: 4th may to 4th may
+========================
 Core concepts
  > pod
  > Replicaset
  > Deployment
  > namespace
  
+ Date: 5th may to 5th may
+ ========================
  
  Multi container pod
  > multi container pod
  
+  Date: 6th may to 6th may
+ ========================
  Observability
  > Readiness probe
  > Liveness probe
@@ -16,6 +22,10 @@ Core concepts
  > monitor cluster
  > monitor k8s resources
  
+ 
+ 
+  Date: 7th may to 5th may
+ ========================
  Configuration
  > commands & args
  > env
@@ -30,6 +40,8 @@ Core concepts
  > node affinity
  > tains & toleration ||  node affinity
  
+ 
+ ========================
  Pod Design
  > label, selectors , annotation
  > rolling updates, rollbacks
@@ -37,12 +49,16 @@ Core concepts
  > jobs
  > cron jobs
  
+ 
+ ========================
  Services & Networking
  > services
  > clusterIP, NodePort, LoadBalancer
  > ingress
  > Network policy
  
+ 
+ ========================
  State persistence
  > Volumes
  > Persistent volumes
@@ -52,7 +68,7 @@ Core concepts
  > statefulset
  > headless service
  
- 
+ ========================
  Updated sylllabus
  > build, run container
  > Authentication, Authorization and Admission Control
