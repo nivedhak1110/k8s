@@ -88,6 +88,7 @@ kubectl get pods -A
  kubectl get rs -n test
  kubectl delete rs replicaset-1
  kubectl get pods -n test
+ kubectl scale  --replicas 5 rs/new-replica-set
  
  label:
  kubectl label pod <podname>  key=value -n test
